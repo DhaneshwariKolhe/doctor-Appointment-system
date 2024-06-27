@@ -38,7 +38,7 @@ class Doctor(models.Model):
 class Patient(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True,blank=True,null=True)
     contact_number = models.BigIntegerField()
 
     def __str__(self) -> str:
@@ -49,7 +49,7 @@ class Patient(models.Model):
 class DoctorAvailability(models.Model):
     day_of_week = (
     ("Mon", "Monday"),
-    ("Tue", "TuesDay"),
+    ("Tue", "Tuesday"),
     ("Wed", "Wednesday"),
     ("Thr", "Thrusday"),
     ("Fri", "Friday"),
@@ -58,7 +58,7 @@ class DoctorAvailability(models.Model):
     )
 # 
     Doctor = models.ForeignKey(Doctor,on_delete=models.CASCADE)
-    day_of_wk = models.CharField('Type',max_length=10,choices=day_of_week,default='Monday')
+    day_of_wk = models.CharField('Type',max_length=10,choices=day_of_week,default='Mon')
     timeslot = models.ManyToManyField(TimeSlot)
 
     # def __str__(self) -> str:
