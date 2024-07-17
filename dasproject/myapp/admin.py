@@ -46,10 +46,4 @@ class AppointmentAdmin(admin.ModelAdmin):
     list_display = ['Doctor','patient','appointment_date','timeslot','appointment_status'] 
     list_filter = ['Doctor','appointment_date','timeslot','appointment_status']
     
-# admin.site.register(Department)
-# admin.site.register(AppointmentStatus)
-# admin.site.register(TimeSlot)
-# admin.site.register(Doctor)
-# admin.site.register(Patient)
-# admin.site.register(DoctorAvailability)
-# admin.site.register(Appointment)
+
